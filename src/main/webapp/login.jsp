@@ -23,7 +23,8 @@
                             <h3>Login Here</h3>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <%@include  file="components/message.jsp" %>
+                            <form action="LoginServlet" method="post">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email address</label>
                                     <input required name="user_email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -35,7 +36,7 @@
                                 </div>
                                 <a class="text-center d-block mb-2" href="register.jsp">If not registered Click Here</a>
                                 <div class="container text-center">
-                                <button type="submit" class="btn btn-primary custom-bg">Submit</button>
+                                <button type="submit" class="btn btn-primary custom-bg">Login</button>
                                 </div>
                             </form>
                         </div>
