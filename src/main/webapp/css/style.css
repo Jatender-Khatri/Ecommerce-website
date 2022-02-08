@@ -1,3 +1,22 @@
 .custom-bg{
     background:#673ab7!important;
 }
+.list-group-item.active{
+    background:#673ab7!important;
+    border-color: #673ab7!important;
+}
+.discount-label{
+    font-size: 10px!important;
+    font-style: italic!important;
+    text-decoration: line-through!important;
+}
+.price-discount-label
+{
+    font-size: 10px!important;
+    font-style: italic!important;
+    text-decoration: cancel-overline!important;
+}
+.product-cart:hover{
+    background: #e2e2e2;
+    cursor: pointer;
+}

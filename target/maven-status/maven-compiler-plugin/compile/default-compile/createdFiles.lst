@@ -1,11 +1,12 @@
-com\mycompany\ecommerce\servlet\LogoutServlet.class
 com\mycompany\ecommerce\dao\CategoryDao.class
 com\mycompany\ecommerce\helper\FactoryProvider.class
 com\mycompany\ecommerce\model\Category.class
 com\mycompany\ecommerce\model\Product.class
+com\mycompany\ecommerce\model\User.class
+com\mycompany\ecommerce\servlet\ProductOperationServlet.class
+com\mycompany\ecommerce\servlet\LogoutServlet.class
 com\mycompany\ecommerce\servlet\RegisterServlet.class
 com\mycompany\ecommerce\servlet\LoginServlet.class
 com\mycompany\ecommerce\dao\ProductDao.class
+com\mycompany\ecommerce\helper\Helper.class
 com\mycompany\ecommerce\dao\UserDao.class
-com\mycompany\ecommerce\model\User.class
-com\mycompany\ecommerce\servlet\ProductOperationServlet.class

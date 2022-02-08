@@ -123,4 +123,9 @@ public class Product {
         return "Product{" + "pId=" + pId + ", pName=" + pName + ", pDesc=" + pDesc + ", pPic=" + pPic + ", pPrice=" + pPrice + ", pDiscount=" + pDiscount + ", pQuantity=" + pQuantity + ", category=" + category + '}';
     }
 
+    // calculate price after discount
+    public Double getPriceAfterApplyingDiscount() {
+        Double d = (Double) ((this.getpDiscount() / 100.0) * this.getpPrice());
+        return this.getpPrice() - d;
+    }
 }

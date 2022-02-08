@@ -4,6 +4,7 @@
     Author     : MeGa
 --%>
 
+<%@page import="com.mycompany.ecommerce.helper.Helper"%>
 <%@page import="com.mycompany.ecommerce.model.Category"%>
 <%@page import="com.mycompany.ecommerce.dao.CategoryDao"%>
 <%@page import="com.mycompany.ecommerce.model.Product"%>
@@ -22,31 +23,73 @@
     </head>
     <body>
         <%@include file="components/navbar.jsp" %>
-        <div class="row mt-3">
-            <% 
-                ProductDao productDao = new ProductDao(FactoryProvider.getFactory());
-                List<Product> pList = productDao.getAllProducts();
-                CategoryDao categoryDao = new CategoryDao(FactoryProvider.getFactory());
-                List<Category> cList = categoryDao.getCategorys();
-            %>
-            <!--show category-->
-            <div class="col-md-2 mx-2">
-                <h1>Number of Category is  <%= cList.size() %></h1>
-                <% 
-                    for (Category category : cList) {
-                            out.println(category.getCategoryName() + "<br>");
-                        }
+        <div class="container-fluid">
+            <div class="row mt-3">
+                <%                    ProductDao productDao = new ProductDao(FactoryProvider.getFactory());
+
+                    CategoryDao categoryDao = new CategoryDao(FactoryProvider.getFactory());
+                    List<Category> cList = categoryDao.getCategorys();
+                    Helper h = new Helper();
+                    String cat = request.getParameter("category");
+
+                    List<Product> pList = null;
+                    List<Product> list = null;
+                    if (cat == null || cat.trim().equals("all")) {
+                        pList = productDao.getAllProducts();
+                    } else {
+                        Integer cid = Integer.parseInt(cat.trim());
+                        pList = productDao.getAllProductById(cid);
+                    }
                 %>
-            </div>
-            <!--show product-->
-            <div class="col-md-8">
-                <h1>Number of the Product is <%= pList.size() %></h1>
-                <% 
-                    for (Product product : pList) {
-                            out.println(product.getpPic() + "<br>");
-                            out.println(product.getpName() + "<br><br>");
-                        }
-                %>
+                <!--show category-->
+                <div class="col-md-2 mx-2">
+                    <div class="list-group mt-4">
+                        <a href="index.jsp?category=all" class="list-group-item list-group-item-action active">
+                            All Products
+                        </a>
+
+
+                        <%
+                            for (Category category : cList) {
+                        %>
+                        <a href="index.jsp?category=<%= category.getCategoryId()%>" class="list-group-item list-group-item-action"><%= category.getCategoryName()%></a>
+                        <%
+                            }
+
+                        %>
+                    </div>
+                </div>
+                <!--show product-->
+                <div class="col-md-9">
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <div class="card-columns">
+                                <%                                    for (Product p : pList) {
+                                %>
+                                <div class="card product-cart">
+                                    <div class="container text-center">
+                                        <img src="img/products/<%= p.getpPic()%>" style="max-height: 140px; min-width: 100%; width: auto;" class="card-img-top m-2" alt="..."/>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <h5 class="card-title"><%= p.getpName()%></h5>
+                                        <p class="card-text"><%= h.get15Words(p.getpDesc())%></p>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <button class="btn custom-bg text-white" onclick="add_to_cart(<%= p.getpId()%>, '<%= p.getpName()%>',<%= p.getPriceAfterApplyingDiscount()%>)">Cart</button>
+                                        <button class="btn btn-outline-primary">&#8360; <%= p.getPriceAfterApplyingDiscount()%>/- <span class="text-secondary discount-label">&#8360; <%= p.getpPrice()%> </span> <span class="text-secondary price-discount-label"><%= p.getpDiscount()%>% off</span></button>
+                                    </div>
+                                </div>
+                                <%
+                                    }
+                                    if (pList.size() == 0) {
+                                        out.println("<div class = 'container text center'><h1>No items in this Category</h1></div>");
+                                    }
+                                %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </body>

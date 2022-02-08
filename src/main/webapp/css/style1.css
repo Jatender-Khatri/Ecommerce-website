@@ -5,3 +5,17 @@
     background: #e2e2e2;
     cursor: pointer;
 }
+.discount-label{
+    font-size: 10px!important;
+    font-style: italic!important;
+}
+.price-discount-label
+{
+    font-size: 10px!important;
+    font-style: italic!important;
+    text-decoration: cancel-overline!important;
+}
+.product-cart:hover{
+    background: #e2e2e2;
+    cursor: pointer;
+}
