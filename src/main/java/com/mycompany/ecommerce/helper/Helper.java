@@ -4,6 +4,12 @@
  */
 package com.mycompany.ecommerce.helper;
 
+import java.util.HashMap;
+import java.util.Map;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+
 /**
  *
  * @author MeGa
@@ -25,5 +31,25 @@ public class Helper {
         {
             return (desc + "...");
         }
+    }
+    
+    public static Map<String,Long> getCounts(SessionFactory factory)
+    {
+        Session s = factory.openSession();
+        String q1 = "select count(*) from User";
+        String q2  = "select count(*) from Product";
+        
+        Query query1 = s.createQuery(q1);
+        Query query2 = s.createQuery(q2);
+        
+        Long countUser = (Long) query1.list().get(0);
+        Long countProduct = (Long) query2.list().get(0);
+        
+        Map<String, Long> map = new HashMap<>();
+        map.put("countUser", countUser);
+        map.put("countProduct", countProduct);
+        
+        s.close();
+        return map;
     }
 }

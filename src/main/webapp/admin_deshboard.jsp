@@ -4,6 +4,9 @@
     Author     : MeGa
 --%>
 
+<%@page import="org.hibernate.SessionFactory"%>
+<%@page import="com.mycompany.ecommerce.helper.Helper"%>
+<%@page import="java.util.Map"%>
 <%@page import="com.mycompany.ecommerce.model.Category"%>
 <%@page import="java.util.List"%>
 <%@page import="com.mycompany.ecommerce.helper.FactoryProvider"%>
@@ -23,6 +26,13 @@
             return;
         }
     }
+%>
+<%                               
+        CategoryDao categoryDao = new CategoryDao(FactoryProvider.getFactory());
+        List<Category> list = categoryDao.getCategorys();
+        
+// getting count
+        Map<String,Long> map = Helper.getCounts(FactoryProvider.getFactory());
 %>
 <!DOCTYPE html>
 <html>
@@ -46,7 +56,7 @@
                             <div class="container">
                                 <img style="max-width: 100px" class="img-fluid" src="img/team.png" alt="user_icon"/>
                             </div>
-                            <h1>2323</h1>
+                            <h1><%= map.get("countUser") %></h1>
                             <h1 class="text-uppercase text-muted">Users</h1>
                         </div>
                     </div>
@@ -57,7 +67,7 @@
                             <div class="container">
                                 <img style="max-width: 100px" class="img-fluid" src="img/list.png" alt="user_icon"/>
                             </div>
-                            <h1>423</h1>
+                            <h1><%= list.size() %></h1>
                             <h1 class="text-uppercase text-muted">Categories</h1>
                         </div>
                     </div>
@@ -68,7 +78,7 @@
                             <div class="container">
                                 <img style="max-width: 100px" class="img-fluid" src="img/delivery-box.png" alt="user_icon"/>
                             </div>
-                            <h1>45</h1>
+                            <h1><%= map.get("countProduct") %></h1>
                             <h1 class="text-uppercase text-muted">Products</h1>
                         </div>
                     </div>
@@ -169,10 +179,7 @@
                             <div class="form-group">
                                 <input required type="number" class="form-control" name="pQuantity" placeholder="Enter Product Quantity" />
                             </div>
-                            <%                               
-                                CategoryDao categoryDao = new CategoryDao(FactoryProvider.getFactory());
-                                List<Category> list = categoryDao.getCategorys();
-                            %>
+
                             <div class="form-group">
                                 <select name="catId" class="form-control">
                                     <option selected disabled>---- Select Product ----</option>
@@ -207,5 +214,6 @@
         </div>
 
         <!--close add product model-->
+        <%@include file="components/common_models.jsp" %>
     </body>
 </html>

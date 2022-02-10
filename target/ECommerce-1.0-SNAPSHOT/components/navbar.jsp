@@ -24,6 +24,9 @@
 
             </ul>
             <ul class="navbar-nav mt-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#!" data-toggle="modal" data-target="#cart"><i class="fa fa-cart-plus" style="font-size: 20px;"></i><span class="ml-0 cart-items" >( 0 )</span></a>
+                </li>
                 <%
                     if (user1 == null) {
                 %>
@@ -37,7 +40,7 @@
                 } else {
                 %>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#!"><%= user1.getUserName() %></a>
+                    <a class="nav-link" href="<%= user1.getUserType().equals("admin") ? "admin_deshboard.jsp" : "normal_deshboard.jsp" %>"><%= user1.getUserName() %></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="LogoutServlet">Logout</a>

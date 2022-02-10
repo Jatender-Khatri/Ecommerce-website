@@ -111,5 +111,6 @@
                 });
             });
         </script>
+        <%@include  file="components/common_models.jsp" %>
     </body>
 </html>
