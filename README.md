@@ -1,4 +1,4 @@
-# Tech-Blog
+# Ecommerce website
 A web app is used to perchase project through online. This is my second project using jsp and servlet.
 ## Features
 - View Proejct, Category vise product show. It handle the admin and normal
