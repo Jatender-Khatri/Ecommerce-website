@@ -12,6 +12,7 @@
         <title>Mycart - Login</title>
 
         <%@include file="components/common_css_js.jsp"  %>
+        <link rel="stylesheet" href="css/footer.css"/>
     </head>
     <body>
         <%@include file="components/navbar.jsp" %>
@@ -28,7 +29,7 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Email address</label>
                                     <input required name="user_email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                                    
+
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Password</label>
@@ -36,7 +37,7 @@
                                 </div>
                                 <a class="text-center d-block mb-2" href="register.jsp">If not registered Click Here</a>
                                 <div class="container text-center">
-                                <button type="submit" class="btn btn-primary custom-bg">Login</button>
+                                    <button type="submit" class="btn btn-primary custom-bg">Login</button>
                                 </div>
                             </form>
                         </div>
@@ -47,5 +48,7 @@
                 </div>    
             </div>
         </div>
+                            <br><br>
+        <%@include file="components/footer.jsp" %>
     </body>
 </html>

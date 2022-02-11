@@ -12,6 +12,7 @@
         <title>Mycard - About</title>
         <%@include file="components/common_css_js.jsp" %>
         <link rel="stylesheet" href="css/about.css"/>
+        <link rel="stylesheet" href="css/footer.css"/>
     </head>
     <body>
 
@@ -39,5 +40,6 @@
             </div>
         </div>
         <%@include  file="components/common_models.jsp" %>
+        <%@include file="components/footer.jsp" %>
     </body>
 </html>

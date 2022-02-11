@@ -11,6 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Mycart - Registration</title>
         <%@include file="components/common_css_js.jsp" %>
+        <link rel="stylesheet" href="css/footer.css"/>
     </head>
     <body>
         <%@include file="components/navbar.jsp" %>
@@ -56,5 +57,7 @@
                 </div>
             </div>
         </div>
+                        <br><br>
+        <%@include file="components/footer.jsp" %>
     </body>
 </html>

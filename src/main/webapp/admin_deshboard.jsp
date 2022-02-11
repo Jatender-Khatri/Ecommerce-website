@@ -41,6 +41,7 @@
         <title>Mycart - Admin</title>
         <%@include file="components/common_css_js.jsp" %>
         <link rel="stylesheet" href="css/style1.css"/>
+        
     </head>
     <body>
         <%@include file="components/navbar.jsp" %>
@@ -215,5 +216,6 @@
 
         <!--close add product model-->
         <%@include file="components/common_models.jsp" %>
+        
     </body>
 </html>

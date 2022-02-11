@@ -12,6 +12,7 @@
         <title>Mycart - Contact</title>
         <%@include file="components/common_css_js.jsp" %>
         <link rel="stylesheet" href="css/contact.css"/>
+        <link rel="stylesheet" href="css/footer.css"/>
     </head>
     <body>
         <%@include file="components/navbar.jsp" %>
@@ -112,5 +113,6 @@
             });
         </script>
         <%@include  file="components/common_models.jsp" %>
+        <%@include file="components/footer.jsp" %>
     </body>
 </html>
